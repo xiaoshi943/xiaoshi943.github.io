@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What's Jekyll?
+title:Jekyll
 tags: [jekyll]
 ---
 
