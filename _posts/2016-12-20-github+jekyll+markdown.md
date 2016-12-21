@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: github+jekyll+markdown搭建个人博客
 ---
 

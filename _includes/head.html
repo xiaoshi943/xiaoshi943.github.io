@@ -3,7 +3,7 @@
 <meta name="description" {% if page.title == "Home" %}
       content="{{ site.description }}" {% else %}
       content="{{ page.content | strip_html | strip_newlines | truncate: 120 }}" {% endif %}>
-	  <meta name="about" {% if page.title == "About" %}
+<meta name="about" {% if page.title == "About" %}
       content="{{ site.about }}" {% else %}>
 <meta name="author" content="{{ site.author }}">
 
