@@ -71,10 +71,10 @@ jekyll new myblog
 |--_includes             //存放页面片段，即页头、脚、导航等
    |--footer.html
    |--header.html
-|--_layouts 			//存放模板文件。文章模板、关于页面模板、首页模板等。
+|--_layouts 	//存放模板文件。文章模板、关于页面模板、首页模板等。
    |--default.html
    |--post.html
-|--_posts				//存放文章的文件。并且文章文件名称要符合YEAR-MONTH-DAY-title.MARKUP格式。
+|--_posts	//存放文章的文件。并且文章文件名称要符合YEAR-MONTH-DAY-title.MARKUP格式。
    |--2014-06-17-articles1.textile
    |--2014-06-17-articles1.md
 |--_site				//经过jekyll转换的页面。
