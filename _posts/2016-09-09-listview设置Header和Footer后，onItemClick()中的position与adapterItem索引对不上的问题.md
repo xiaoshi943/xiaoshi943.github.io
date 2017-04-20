@@ -1,3 +1,5 @@
+### 2016-09-09-listview设置Header和Footer后，onItemClick()中的position与adapterItem索引对不上的问题
+
 ​	当我们给ListView加了一个HeaderView后，onItemClick()方法里的`position`参数的值和我们列表中的Item下标对不上。比如我们给ListView添加了一个headerView，当点击列表中的第一条item时，我们期望的`position`是0，可是实际上却是1；再比如，如我们给ListView添加了两个headerView，`position`却是是2。也就是说，Adapter把HeaderView和FooterView也当成了Item，它是从Header开始计数的。
 
 ​	这就引发了一个问题：我们平时用ListView的时候，一般在Actiivty中存放一个数据源List<T> datas，将该datas传给adapter展示数据，当点击Item时，通过onItemClick()方法里的`position`取出datas中的相应数据。如果ListView设置了HeaderView，所点击的Item和position是对不上的，从datas取出的数据自然不对。
@@ -85,7 +87,7 @@ public class ListViewTestActivity extends Activity implements OnItemClickListene
         resetList();
         mRecycler.clear();
 		
-      	//如果ListView有HeaderView或者FooterView的话，则使用HeaderViewListAdapter对象来替代原来的dataper
+      	//如果ListView有HeaderView或者FooterView的话，则使用HeaderViewListAdapter对象来替代原来的			  dataper
         if (mHeaderViewInfos.size() > 0|| mFooterViewInfos.size() > 0) {
             mAdapter = new HeaderViewListAdapter(mHeaderViewInfos, mFooterViewInfos, adapter);
         } else {
@@ -159,7 +161,7 @@ public class HeaderViewListAdapter implements WrapperListAdapter, Filterable {
     public Object getItem(int position) {
         // Header (negative positions will throw an IndexOutOfBoundsException)
         int numHeaders = getHeadersCount();
-        if (position < numHeaders) { //如果position小于HeaderView的个数，说明需要获取的item是Headerview
+        if (position < numHeaders) { //如果position小于HeaderView的个数，说明需要获取的item是											Headerview
             return mHeaderViewInfos.get(position).data;
         }
 
@@ -168,13 +170,13 @@ public class HeaderViewListAdapter implements WrapperListAdapter, Filterable {
         int adapterCount = 0;
         if (mAdapter != null) {
             adapterCount = mAdapter.getCount();
-            if (adjPosition < adapterCount) { //如果"矫正"的position在初始dapter的item个数（即源数据datas个                                                 数）范围内，说明需要获取的Item是初始adapter中的数据
+            if (adjPosition < adapterCount) { //如果"矫正"的position在初始dapter的item个数（即源数												  据datas个数）范围内，说明需要获取的Item是初始													adapter中的数据
                 return mAdapter.getItem(adjPosition);
             }
         }
 
         // Footer (off-limits positions will throw an IndexOutOfBoundsException)
-        return mFooterViewInfos.get(adjPosition - adapterCount).data; //如果既不是HeaderView也不是"正常"的																		  Item，则剩下的就是footerView了
+        return mFooterViewInfos.get(adjPosition - adapterCount).data; //如果既不是HeaderView也不																		是"正常"的Item，则剩下的就																	   是footerView了
     }
   	......
 }
