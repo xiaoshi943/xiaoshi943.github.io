@@ -161,7 +161,8 @@ public class HeaderViewListAdapter implements WrapperListAdapter, Filterable {
     public Object getItem(int position) {
         // Header (negative positions will throw an IndexOutOfBoundsException)
         int numHeaders = getHeadersCount();
-        if (position < numHeaders) { //如果position小于HeaderView的个数，说明需要获取的item是											Headerview
+        if (position < numHeaders) { //如果position小于HeaderView的个数，说明需要获取的item是
+          							 //Headerview
             return mHeaderViewInfos.get(position).data;
         }
 
@@ -170,13 +171,17 @@ public class HeaderViewListAdapter implements WrapperListAdapter, Filterable {
         int adapterCount = 0;
         if (mAdapter != null) {
             adapterCount = mAdapter.getCount();
-            if (adjPosition < adapterCount) { //如果"矫正"的position在初始dapter的item个数（即源数												  据datas个数）范围内，说明需要获取的Item是初始													adapter中的数据
+            if (adjPosition < adapterCount) { //如果"矫正"的position在初始dapter的item个数（即源
+              									//数据datas个数）范围内，说明需要获取的Item是初始
+              									//adapter中的数据
                 return mAdapter.getItem(adjPosition);
             }
         }
 
         // Footer (off-limits positions will throw an IndexOutOfBoundsException)
-        return mFooterViewInfos.get(adjPosition - adapterCount).data; //如果既不是HeaderView也不																		是"正常"的Item，则剩下的就																	   是footerView了
+        return mFooterViewInfos.get(adjPosition - adapterCount).data; //如果既不是HeaderView也
+      																//不是"正常"的Item，则剩下
+      																//的就是footerView了
     }
   	......
 }
