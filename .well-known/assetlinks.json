@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.momo.myapplication",
+    "sha256_cert_fingerprints":
+    ["B1:91:07:CF:AB:93:B1:46:93:9C:23:5A:CE:99:0A:DE:38:0A:56:74:E0:2D:06:50:93:F4:E0:AD:40:FD:5F:ED"]
+  }
+}]
