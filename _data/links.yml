@@ -4,5 +4,5 @@
 - url: /about
   title: About
 
-- url /.well-known
+- url: /.well-known
   title: applinks
